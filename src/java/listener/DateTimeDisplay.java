@@ -19,6 +19,8 @@ public class DateTimeDisplay implements ServletContextListener {
     public void contextInitialized(ServletContextEvent sce) {
         ServletContext ctx = sce.getServletContext();
         ctx.setAttribute("DateTime", new Date());
+        ctx.setAttribute("MP", "MP3");
+        ctx.setAttribute("Header", "ICS2608 | 2CSA | BOLALIN - CARO - TEOPE");
     }
     
     @Override

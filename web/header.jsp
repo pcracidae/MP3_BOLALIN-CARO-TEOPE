@@ -6,6 +6,6 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <header>
-    <h1>${initParam.Header}</h1>
+    <h1>${applicationScope.Header}</h1>
 </header>
 
