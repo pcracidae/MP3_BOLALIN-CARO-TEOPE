@@ -24,6 +24,21 @@
     <servlet>
         <servlet-name>CharacterCountingServlet</servlet-name>
         <servlet-class>groupfourservlets.CharacterCountingServlet</servlet-class>
+        
+        <init-param>
+            <param-name>digits</param-name>
+            <param-value>0123456789</param-value>
+        </init-param>
+
+        <init-param>
+            <param-name>vowels</param-name>
+            <param-value>aeiouAEIOU</param-value>
+        </init-param>
+
+        <init-param>
+            <param-name>consonants</param-name>
+            <param-value>bcdfghjklmnpqrstvwxyzBCDFGHJKLMNPQRSTVWXYZ</param-value>
+        </init-param>
     </servlet>
     
     <servlet-mapping>

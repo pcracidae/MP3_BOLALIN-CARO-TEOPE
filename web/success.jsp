@@ -9,9 +9,18 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Success</title>
     </head>
     <body>
-        <h1>Hello World!</h1>
+        <form action="CharacterCountingServlet" method="post">
+            <label for="string">Enter String</label>
+            <input type="text" name="string" id="string" required/>
+            <button type="submit">Enter</button>
+        </form>
+        <p>String Length: ${len}</p>
+        <p>Number of Digits: ${dcnt}</p>
+        <p>Number of Vowels: ${vcnt}</p>
+        <p>Number of Consonants: ${ccnt}</p>
+        <p>Number of Symbols:  ${scnt}</p>
     </body>
 </html>
