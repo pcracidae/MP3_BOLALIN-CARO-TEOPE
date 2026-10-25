@@ -12,6 +12,7 @@
         <title>Success</title>
     </head>
     <body>
+        <%@include file="header.jsp" %>
         <form action="CharacterCountingServlet" method="post">
             <label for="string">Enter String</label>
             <input type="text" name="string" id="string" required/>
@@ -22,5 +23,6 @@
         <p>Number of Vowels: ${vcnt}</p>
         <p>Number of Consonants: ${ccnt}</p>
         <p>Number of Symbols:  ${scnt}</p>
+        <%@include file="footer.jsp" %>
     </body>
 </html>

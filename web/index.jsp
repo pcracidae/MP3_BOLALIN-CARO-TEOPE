@@ -12,9 +12,11 @@
         <title>Login Page</title>
     </head>
     <body>
+        <%@include file="header.jsp" %>
         <form>
             <input type="text" method="POST"/>
             <input type="password" method="POST" />
         </form>
+        <%@include file="footer.jsp" %>
     </body>
 </html>
