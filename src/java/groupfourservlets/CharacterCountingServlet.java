@@ -56,7 +56,7 @@ public class CharacterCountingServlet extends HttpServlet {
         request.setAttribute("vcnt", vcnt);
         request.setAttribute("ccnt", ccnt);
         request.setAttribute("scnt", scnt);
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/success.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/success.jsp");
         dispatcher.forward(request, response);
     }
 }

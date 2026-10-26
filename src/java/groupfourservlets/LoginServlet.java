@@ -40,12 +40,12 @@ public class LoginServlet extends HttpServlet {
         
         /* > If both fields are empty, the application should display an 
          * appropriate message indicating that both fields are required.
-         * :shrug: Both fields empty. Show appr. msg.
+         * Both fields empty. Show appr. msg.
          */
         
         if (user.isEmpty() && pass.isEmpty())
         {
-            // Code to show the msg. here.
+            return;
         }
         else
         {
