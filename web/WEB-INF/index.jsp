@@ -29,19 +29,9 @@
                     <label for="password">Password:</label>
                     <input type="password" id="password" name="password" method="POST" />
                 </div>
-                
-                <%
-                    String user = request.getParameter("username");
-                    String pass = request.getParameter("password");
 
-                    // Check if the field is null or just spaces/empty
-                    if ((user == null || user.trim().isEmpty()) && (pass == null || pass.trim().isEmpty())) 
-                    {
-                %>
-                        <p style="color:red;">Both fields cannot be empty!</p>     
-                <%
-                    }
-                %>
+                <p style="color:red;">${alertMsg}</p>
+                
                 <input type ="submit" value="Submit" />
             </fieldset>
             

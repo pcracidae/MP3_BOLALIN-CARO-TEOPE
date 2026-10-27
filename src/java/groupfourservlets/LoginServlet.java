@@ -37,40 +37,41 @@ public class LoginServlet extends HttpServlet {
         String ctexUser = getInitParameter("username");
         String pass = request.getParameter("password");
         String ctexPass = getInitParameter("password");
-        
-        /* > If both fields are empty, the application should display an 
-         * appropriate message indicating that both fields are required.
-         * Both fields empty. Show appr. msg.
-         */
-        
+
         if (user.isEmpty() && pass.isEmpty())
         {
-            return;
+            request.setAttribute(
+                    "alertMsg", 
+                    "Try again! Both fields are required!"
+            );
+            request.getRequestDispatcher("/WEB-INF/index.jsp").forward(request, response);
         }
         else
         {
             // 1. Checks if 'user' is empty.
-            if (!user.isEmpty())
+            if (!user.trim().isEmpty())
             {
 
                 // 2. Checks if 'pass' is empty.
-                if (!pass.isEmpty())
+                if (!pass.trim().isEmpty())
                 {
-                    if (user.equals(ctexUser) && pass.equals(ctexPass))
+                    boolean uMatch = user.equals(ctexUser);
+                    boolean pMatch = pass.equals(ctexPass);
+                    
+                    if (uMatch && pMatch)
                     {
                         request.getRequestDispatcher("/WEB-INF/success.jsp").forward(request, response);
-                        return;
                     }
                     else
                     {
-                        // Wouldn't it be safer this way?
-                        // LMK if you guys want to change
                         request.setAttribute(
                                 "errorMsg", 
-                                "The provided username or password is incorrect!"
+                            //  "The provided username or password is incorrect"
+                                "The provided " + (!uMatch ? "username " : "") + 
+                                        (!uMatch && !pMatch ? "or " : "") + 
+                                        (!pMatch ? "password " : "") + "is incorrect!"
                         );
                         request.getRequestDispatcher("/WEB-INF/error.jsp").forward(request, response);
-                        return;
                     }
 
                 }
@@ -82,7 +83,6 @@ public class LoginServlet extends HttpServlet {
                             "Please enter a password."
                     );
                     request.getRequestDispatcher("/WEB-INF/error.jsp").forward(request, response);
-                    return;
                 }
 
             }
@@ -94,15 +94,10 @@ public class LoginServlet extends HttpServlet {
                         "Please enter a username."
                 );
                 request.getRequestDispatcher("/WEB-INF/error.jsp").forward(request, response);
-                return;
             }
         
         }
-        // Success (Req. Credentials match Context's)
         
-        // On success, forward to success.jsp
-        // Check request's account and password fields.
-        // If 
     }
 
     /**
@@ -126,7 +121,7 @@ public class LoginServlet extends HttpServlet {
      */
     @Override
     public String getServletInfo() {
-        return "Short description";
+        return "Written by Gabriel. Hi!!! Hello!!!";
     }// </editor-fold>
 
 }
