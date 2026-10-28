@@ -20,7 +20,7 @@
         <div class="page-container">
             <%@include file="header.jsp" %>
             <main class="main-content">
-                <form action="LoginServlet" method="POST" class="sign-in">
+                <form action="LoginServlet" method="POST">
                     <fieldset class="field-box">
                         <legend>Sign In</legend>
                         <div class="field-row">

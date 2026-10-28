@@ -20,7 +20,7 @@
         <div class="page-container">
             <%@include file="header.jsp" %>
             <main class="main-content">
-                <form action="CharacterCountingServlet" method="post" class="char-count">
+                <form action="CharacterCountingServlet">
                     <fieldset class="field-box">
                         <legend>Character Counting</legend>
                         <div class="field-row">
@@ -35,14 +35,33 @@
                         </div>
                         
                     </fieldset>
-                    <div class="results">
-                        <p style="font-weight: bold;">Entered: ${ustr}</p>
-                        <p>String Length: ${len}</p>
-                        <p>Number of Digits: ${dcnt}</p>
-                        <p>Number of Vowels: ${vcnt}</p>
-                        <p>Number of Consonants: ${ccnt}</p>
-                        <p>Number of Symbols:  ${scnt}</p>
-                    </div>
+                    <table class="results">
+                        <thead>
+                            <td colspan="2"><b>Entered</b>: ${ustr}</td>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>String Length:</td>
+                                <td class="count">${len}</td>
+                            </tr>
+                            <tr>
+                                <td>Number of Digits:</td>
+                                <td class="count">${dcnt}</td>
+                            </tr>
+                            <tr>
+                                <td>Number of Vowels:</td>
+                                <td class="count">${vcnt}</td>
+                            </tr>
+                            <tr>
+                                <td>Number of Consonants:</td>
+                                <td class="count">${ccnt}</td>
+                            </tr>
+                            <tr>
+                                <td>Number of Symbols:</td>
+                                <td class="count">${scnt}</td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </form>
 
             </main>
