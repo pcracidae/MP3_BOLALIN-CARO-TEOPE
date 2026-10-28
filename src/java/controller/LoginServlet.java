@@ -38,13 +38,16 @@ public class LoginServlet extends HttpServlet {
         String pass = request.getParameter("password");
         String ctexPass = getInitParameter("password");
 
+        
+        String errorMsg = null;
+        
         if (user.isEmpty() && pass.isEmpty())
         {
             request.setAttribute(
                     "alertMsg", 
                     "Try again! Both fields are required!"
             );
-            request.getRequestDispatcher("/WEB-INF/index.jsp").forward(request, response);
+            request.getRequestDispatcher("/index.jsp").forward(request, response);
         }
         else
         {
@@ -64,41 +67,35 @@ public class LoginServlet extends HttpServlet {
                     }
                     else
                     {
-                        request.setAttribute(
-                                "errorMsg", 
-                            //  "The provided username or password is incorrect"
-                                "The provided " + (!uMatch ? "username " : "") + 
-                                        (!uMatch && !pMatch ? "or " : "") + 
-                                        (!pMatch ? "password " : "") + "is incorrect!"
-                        );
-                        request.getRequestDispatcher("/WEB-INF/error.jsp").forward(request, response);
+                        errorMsg = "The provided " + (!uMatch ? "username " : "") + 
+                                            (!uMatch && !pMatch ? "and " : "") + 
+                                            (!pMatch ? "password " : "") + "is incorrect!";
                     }
 
                 }
                 else
                 {
                     // 2.e Forward to error.jsp
-                    request.setAttribute(
-                            "errorMsg", 
-                            "Please enter a password."
-                    );
-                    request.getRequestDispatcher("/WEB-INF/error.jsp").forward(request, response);
+                    errorMsg = "Please enter a password.";
                 }
 
             }
             else
             {
                 // 1.e Forward to error.jsp
-                request.setAttribute(
-                        "errorMsg", 
-                        "Please enter a username."
-                );
-                request.getRequestDispatcher("/WEB-INF/error.jsp").forward(request, response);
+                errorMsg = "Please enter a username.";
             }
         
         }
         
+        if (errorMsg != null) 
+        {
+            request.setAttribute("errorMsg", errorMsg);
+            request.getRequestDispatcher("/WEB-INF/error.jsp").forward(request, response);
+        }
     }
+    
+
 
     /**
      * Handles the HTTP <code>POST</code> method.

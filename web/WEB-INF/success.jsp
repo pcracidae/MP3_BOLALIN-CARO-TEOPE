@@ -42,23 +42,23 @@
                         <tbody>
                             <tr>
                                 <td>String Length:</td>
-                                <td class="count">${len}</td>
+                                <td class="count">${empty len ? 0 : len}</td>
                             </tr>
                             <tr>
                                 <td>Number of Digits:</td>
-                                <td class="count">${dcnt}</td>
+                                <td class="count">${empty dcnt ? 0 : dcnt}</td>
                             </tr>
                             <tr>
                                 <td>Number of Vowels:</td>
-                                <td class="count">${vcnt}</td>
+                                <td class="count">${empty vcnt ? 0 : vcnt}</td>
                             </tr>
                             <tr>
                                 <td>Number of Consonants:</td>
-                                <td class="count">${ccnt}</td>
+                                <td class="count">${empty ccnt ? 0 : ccnt}</td>
                             </tr>
                             <tr>
                                 <td>Number of Symbols:</td>
-                                <td class="count">${scnt}</td>
+                                <td class="count">${empty scnt ? 0 : scnt}</td>
                             </tr>
                         </tbody>
                     </table>

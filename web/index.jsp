@@ -18,9 +18,9 @@
     </head>
     <body>
         <div class="page-container">
-            <%@include file="header.jsp" %>
+            <%@include file="WEB-INF/header.jsp" %>
             <main class="main-content">
-                <form action="LoginServlet" method="POST" class="sign-in">
+                <form action="LoginServlet" method="POST">
                     <fieldset class="field-box">
                         <legend>Sign In</legend>
                         <div class="field-row">
@@ -41,7 +41,7 @@
                     </fieldset>
                 </form>
             </main>
-            <%@include file="footer.jsp" %>
+            <%@include file="WEB-INF/footer.jsp" %>
         </div>
     </body>
 </html>

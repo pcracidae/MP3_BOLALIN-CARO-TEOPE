@@ -7,12 +7,11 @@ package controller;
 
 import java.io.IOException;
 import javax.servlet.*;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
 
 /**
  *
- * @author Gabriel
+ * @author Rohan, Gabriel
  */
 public class CharacterCountingServlet extends HttpServlet {
 
@@ -26,37 +25,60 @@ public class CharacterCountingServlet extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException 
+    {
         response.setContentType("text/html;charset=UTF-8");
-        String user_string = request.getParameter("string");
-        String digits = getInitParameter("digits");
-        String vowels = getInitParameter("vowels");
-        String consonants = getInitParameter("consonants");
+        
+        String digits       = getInitParameter("digits");
+        String vowels       = getInitParameter("vowels");
+        String consonants   = getInitParameter("consonants");
+        
+        String inputString = request.getParameter("string");
+        if (inputString == null)
+        {
+            // Fixes visiting directly!
+            inputString = "";
+        }
+        
         int dcnt = 0;
         int vcnt = 0;
         int ccnt = 0;
         int scnt = 0;
-        for (int i = 0; i < user_string.length(); i++) {
-            if (digits.indexOf(user_string.charAt(i)) != -1) {
+        
+        for (int i = 0; i < inputString.length(); i++) 
+        {
+            if (digits.indexOf(inputString.charAt(i)) != -1) 
+            {
                 dcnt++;
             }
-            else if (vowels.indexOf(user_string.charAt(i)) != -1) {
+            else if (vowels.indexOf(inputString.charAt(i)) != -1) 
+            {
                 vcnt++;
             }
-            else if (consonants.indexOf(user_string.charAt(i)) != -1) {
+            else if (consonants.indexOf(inputString.charAt(i)) != -1) 
+            {
                 ccnt++;
             }
-            else if (!Character.isWhitespace(user_string.charAt(i))) {
+            else if (!Character.isWhitespace(inputString.charAt(i))) 
+            {
                 scnt++;
             }
         }
-        request.setAttribute("len", user_string.length());
-        request.setAttribute("ustr", user_string);
+        
+        // 1. User string
+        request.setAttribute("ustr", inputString);
+        
+        // 2. String Length
+        request.setAttribute("len", inputString.length());
+        
+        // 3. Other Details
         request.setAttribute("dcnt", dcnt);
         request.setAttribute("vcnt", vcnt);
         request.setAttribute("ccnt", ccnt);
         request.setAttribute("scnt", scnt);
+        
+        // 4. Fwd. Using Our Dispatcher.
         RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/success.jsp");
         dispatcher.forward(request, response);
     }
