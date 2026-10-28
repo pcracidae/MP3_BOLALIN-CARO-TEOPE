@@ -6,5 +6,5 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <footer>
-    <p>${applicationScope.DateTime}, ${applicationScope.MP}</p>
+    <p>${applicationScope.DateTime}, ${applicationScope.Identifier}</p>
 </footer>
