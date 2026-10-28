@@ -17,25 +17,31 @@
         />
     </head>
     <body>
-        <%@include file="header.jsp" %>
-        <form action="LoginServlet" method="POST">
-            <fieldset>
-                <div class="field-row">
-                    <label for="username">Username:</label>
-                    <input type="text" id="username" name="username" method="POST" />
-                </div>
-                
-                <div class="field-row">
-                    <label for="password">Password:</label>
-                    <input type="password" id="password" name="password" method="POST" />
-                </div>
+        <div class="page-container">
+            <%@include file="header.jsp" %>
+            <main class="main-content">
+                <form action="LoginServlet" method="POST" class="sign-in">
+                    <fieldset class="field-box">
+                        <legend>Sign In</legend>
+                        <div class="field-row">
+                            <label for="username">Username:</label>
+                            <input type="text" id="username" name="username" method="POST" />
+                        </div>
 
-                <p style="color:red;">${alertMsg}</p>
-                
-                <input type ="submit" value="Submit" />
-            </fieldset>
-            
-        </form>
-        <%@include file="footer.jsp" %>
+                        <div class="field-row">
+                            <label for="password">Password:</label>
+                            <input type="password" id="password" name="password" method="POST" />
+                        </div>
+
+                        <p style="color:red;">${alertMsg}</p>
+
+                        <div class="form-submit">
+                            <input type ="submit" value="Submit" />
+                        </div>
+                    </fieldset>
+                </form>
+            </main>
+            <%@include file="footer.jsp" %>
+        </div>
     </body>
 </html>

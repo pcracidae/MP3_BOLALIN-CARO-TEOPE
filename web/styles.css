@@ -8,13 +8,67 @@ and open the template in the editor.
     Author     : Gabriel
 */
 
-fieldset {
-    display: inline-block;
+/*
+ * Page formatting.
+ */
+.page-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 97vh;
 }
 
+.main-content {
+    display: flex;
+    justify-content: center;
+    flex-grow: 1;
+}
+
+/*
+ * Form stuff.
+ */
+.sign-in, .char-count {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+    
 .field-row {
     display: flex; 
     justify-content: space-between; 
     align-items: center;
-    gap: 8px;
+    margin-bottom: 5px;
+    gap: 5px;
+}
+
+.field-box {
+    display: inline-block;
+    margin: 0 auto;
+}
+
+.form-submit {
+    display: flex;
+    justify-content: center;
+}
+
+.results {
+    margin-top: 4px;
+    padding: 0px 14px;
+    border: 2px groove threedface;   /* The box border */
+    
+    p {
+        margin: 2px 0;
+    }
+}
+
+/*
+ * Style our headers & footers.
+ */ 
+footer {
+    display: flex;
+    justify-content: center;
+}
+
+header {
+    display: flex;
+    justify-content: center;
 }

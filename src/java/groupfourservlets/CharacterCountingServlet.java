@@ -52,6 +52,7 @@ public class CharacterCountingServlet extends HttpServlet {
             }
         }
         request.setAttribute("len", user_string.length());
+        request.setAttribute("ustr", user_string);
         request.setAttribute("dcnt", dcnt);
         request.setAttribute("vcnt", vcnt);
         request.setAttribute("ccnt", ccnt);
