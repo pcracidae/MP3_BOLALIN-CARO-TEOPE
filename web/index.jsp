@@ -25,12 +25,12 @@
                         <legend>Sign In</legend>
                         <div class="field-row">
                             <label for="username">Username:</label>
-                            <input type="text" id="username" name="username" method="POST" />
+                            <input type="text" id="username" name="username" />
                         </div>
 
                         <div class="field-row">
                             <label for="password">Password:</label>
-                            <input type="password" id="password" name="password" method="POST" />
+                            <input type="password" id="password" name="password" />
                         </div>
 
                         <p style="color:red;">${alertMsg}</p>
