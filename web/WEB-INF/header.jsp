@@ -6,6 +6,6 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <header>
-    <h1>${applicationScope.Header}</h1>
+    <p>${applicationScope.Header}</p>
 </header>
 
