@@ -6,8 +6,8 @@
 package controller;
 
 import java.io.IOException;
-import java.io.PrintWriter;
-import javax.servlet.RequestDispatcher;
+// import java.io.PrintWriter;
+// import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -64,38 +64,37 @@ public class LoginServlet extends HttpServlet {
                     {
                         request.getRequestDispatcher("/WEB-INF/success.jsp").forward(request, response);
                     }
-                    else
+                    else // 3. When both provided credentials are incorrect.
                     {
-                        errorMsg = "The provided " + (!uMatch ? "username " : "") + 
-                                            (!uMatch && !pMatch ? "and " : "") + 
+                        // 3.e Update 'errorMsg'
+                        errorMsg = "The provided " + (!uMatch ? "username " : "") +             // I don't wanna write a separate 
+                                            (!uMatch && !pMatch ? "and " : "") +                // clause. Sorry! :)
                                             (!pMatch ? "password " : "") + "is incorrect!";
                     }
 
                 }
                 else
                 {
-                    // 2.e Forward to error.jsp
+                    // 2.e Update 'errorMsg'
                     errorMsg = "Please enter a password.";
                 }
 
             }
             else
             {
-                // 1.e Forward to error.jsp
+                // 1.e Update 'errorMsg'
                 errorMsg = "Please enter a username.";
             }
-        
+            
         }
         
-        if (errorMsg != null) 
+        if (errorMsg != null) // Trips error.jsp.
         {
             request.setAttribute("errorMsg", errorMsg);
             request.getRequestDispatcher("/WEB-INF/error.jsp").forward(request, response);
         }
     }
     
-
-
     /**
      * Handles the HTTP <code>POST</code> method.
      *
