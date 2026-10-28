@@ -19,6 +19,8 @@ and open the template in the editor.
 
 .main-content {
     display: flex;
+    align-items: center;
+    flex-direction: column;
     justify-content: center;
     flex-grow: 1;
 }
@@ -26,11 +28,6 @@ and open the template in the editor.
 /*
  * Form stuff.
  */
-.sign-in, .char-count {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-}
     
 .field-row {
     display: flex; 
@@ -50,14 +47,27 @@ and open the template in the editor.
     justify-content: center;
 }
 
+/*
+ * Results table.
+ */
 .results {
-    margin-top: 4px;
-    padding: 0px 14px;
-    border: 2px groove threedface;   /* The box border */
-    
-    p {
-        margin: 2px 0;
-    }
+    border-collapse: collapse;
+    margin-top: 5px;
+    width: 100%;
+}
+
+th, td {
+    border: 2px groove threedface;
+    padding: 0 2px;
+}
+
+thead td {
+    padding: 2px;
+    text-align: center;
+}
+
+.count {
+    min-width: 8px;
 }
 
 /*

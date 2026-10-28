@@ -11,18 +11,23 @@ import java.util.*;
 
 /**
  *
- * @author User
+ * @author Rohan, Gabriel
  */
-public class DateTimeDisplay implements ServletContextListener {
+public class ContextSetupListener implements ServletContextListener 
+{
     
     @Override
-    public void contextInitialized(ServletContextEvent sce) {
+    public void contextInitialized(ServletContextEvent sce) 
+    {
         ServletContext ctx = sce.getServletContext();
         ctx.setAttribute("DateTime", new Date());
-        ctx.setAttribute("MP", "MP3");
+        ctx.setAttribute("Identifier", "MP3");
         ctx.setAttribute("Header", "ICS2608 / 2CSA / BOLALIN - CARO - TEOPE");
     }
     
     @Override
-    public void contextDestroyed(ServletContextEvent sce) {}
+    public void contextDestroyed(ServletContextEvent sce) 
+    {
+    
+    }
 }
