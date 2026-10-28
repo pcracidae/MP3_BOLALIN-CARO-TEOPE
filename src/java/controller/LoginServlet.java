@@ -38,6 +38,15 @@ public class LoginServlet extends HttpServlet {
         String pass = request.getParameter("password");
         String ctexPass = getInitParameter("password");
 
+        if (user == null)
+        {
+            user = "";
+        }
+        
+        if (pass == null)
+        {
+            pass = "";
+        }
         
         String errorMsg = null;
         
